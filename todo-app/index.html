@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./js/main.js"></script>
+    <link href="./css/main.css" rel="stylesheet" />
+    <title>Todo App</title>
+</head>
+
+<body onload="populateTodos()">
+    <header></header>
+    <main>
+        <div id="add_box">
+            <input type="text" name="todo" id="todo" />
+            <button onClick="addTodo()" id="add_btn">Add</button>
+        </div>
+        <table id="table_box">
+            <script>
+                todos.forEach(element => {
+                    document.write(
+                        `<tr class="item">
+                            <td class="todo_item">${element.isCompleted ? '<strike>' + element.todo + '</strike>' : element.todo} </td>
+                            <td><button id="done_btn" onclick="markAsDone(${element.id})">${element.isCompleted ? "Undo" : "Done"} </button></td>
+                            <td><button id="delete_btn" onclick="deleteTodo(${element.id})">Delete</button></td>
+                        </tr>`
+                    )
+                });
+            </script>
+        </table>
+        <table id="table_dom" class="todos-table">
+        </table>
+    </main>
+    <footer></footer>
+</body>
+
+</html>
